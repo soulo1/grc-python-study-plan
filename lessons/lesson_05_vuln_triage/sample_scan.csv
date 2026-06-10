@@ -1,0 +1,11 @@
+cve,host,severity,cvss,first_seen,description
+CVE-2021-44228,web-prod-01,Critical,10.0,2026-05-20,Apache Log4j2 RCE (Log4Shell)
+CVE-2014-0160,web-prod-02,High,7.5,2026-06-01,OpenSSL Heartbleed information disclosure
+CVE-2017-0144,file-srv-01,Critical,8.1,2026-03-15,SMBv1 RCE (EternalBlue)
+CVE-2023-23397,mail-01,High,9.8,2026-06-05,Microsoft Outlook privilege escalation
+CVE-2019-0708,rdp-gw-01,Critical,9.8,2026-06-08,BlueKeep RDP RCE
+CVE-2022-22965,app-prod-03,High,9.8,2026-04-01,Spring4Shell RCE
+CVE-2020-1472,dc-01,Critical,10.0,2026-02-10,Zerologon Netlogon EoP
+CVE-2021-34527,print-01,Medium,8.8,2026-06-07,PrintNightmare spooler RCE
+CVE-2018-7600,cms-01,Medium,9.8,2026-06-06,Drupalgeddon2 RCE
+CVE-2016-5195,legacy-01,Low,7.0,2026-06-09,Dirty COW local privilege escalation

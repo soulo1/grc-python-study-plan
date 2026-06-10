@@ -1,0 +1,5 @@
+# Third-party libraries used by the later lessons.
+# Lessons 1-9, 11, 12, 14 use only the Python standard library.
+requests>=2.31     # lesson 6: live NVD API lookups
+openpyxl>=3.1      # lesson 10: Excel report generation
+pytest>=8.0        # lesson 13: automated tests

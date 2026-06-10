@@ -1,0 +1,2 @@
+MFA enforced for all admin accounts.
+Screenshot exported from IdP console on 2026-06-01.

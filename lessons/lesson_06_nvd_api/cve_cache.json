@@ -1,0 +1,20 @@
+{
+  "CVE-2021-44228": {
+    "cvss": 10.0,
+    "severity": "CRITICAL",
+    "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+    "description": "Apache Log4j2 JNDI features used in configuration, log messages, and parameters do not protect against attacker controlled LDAP and other JNDI related endpoints (Log4Shell)."
+  },
+  "CVE-2014-0160": {
+    "cvss": 7.5,
+    "severity": "HIGH",
+    "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+    "description": "The TLS heartbeat extension in OpenSSL allows remote attackers to obtain sensitive information from process memory (Heartbleed)."
+  },
+  "CVE-2020-1472": {
+    "cvss": 10.0,
+    "severity": "CRITICAL",
+    "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+    "description": "An elevation of privilege vulnerability in Netlogon (Zerologon) allows establishing a vulnerable secure channel to a domain controller."
+  }
+}

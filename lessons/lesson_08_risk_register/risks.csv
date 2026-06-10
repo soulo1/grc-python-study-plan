@@ -1,0 +1,9 @@
+id,title,category,likelihood,impact,control_effectiveness,owner
+R-001,Ransomware via phishing,Security,4,5,0.2,CISO
+R-002,Cloud misconfiguration exposes data,Security,3,5,0.1,Platform Lead
+R-003,Key vendor outage (payment processor),Operational,2,4,0.3,COO
+R-004,Loss of key personnel,Operational,3,3,0.2,People Ops
+R-005,Non-compliance with new privacy regulation,Compliance,3,4,0.4,DPO
+R-006,Insider data theft,Security,2,5,0.5,CISO
+R-007,Laptop loss/theft (unencrypted),Security,3,3,0.8,IT
+R-008,DDoS against public API,Operational,3,3,0.7,Platform Lead

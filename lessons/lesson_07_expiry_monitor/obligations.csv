@@ -1,0 +1,11 @@
+item,type,owner,due_date
+TLS cert: api.example.com,certificate,Platform Team,2026-06-18
+TLS cert: www.example.com,certificate,Platform Team,2026-09-30
+Information Security Policy annual review,policy,CISO,2026-06-05
+Acceptable Use Policy annual review,policy,CISO,2026-12-01
+Vendor reassessment: AWS,vendor,Procurement,2026-07-15
+Vendor reassessment: Datadog,vendor,Procurement,2026-06-12
+Q2 User Access Review,access_review,IT Security,2026-06-30
+Security Awareness Training (annual),training,People Ops,2026-05-15
+Penetration test (annual),assessment,Security,2026-11-20
+SOC 2 Type II audit window opens,audit,Compliance,2026-08-01

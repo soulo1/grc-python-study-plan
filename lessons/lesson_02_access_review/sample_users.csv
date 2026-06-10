@@ -1,0 +1,13 @@
+username,full_name,role,department,manager,last_login,is_privileged,status
+asmith,Alice Smith,Engineer,Engineering,bwong,2026-06-08,false,active
+bwong,Bob Wong,Eng Manager,Engineering,ceo,2026-06-09,true,active
+cjones,Carol Jones,Analyst,Finance,dmiller,2026-01-15,false,active
+dmiller,Dan Miller,Finance Manager,Finance,ceo,2026-06-01,true,active
+elee,Eve Lee,Contractor,Engineering,bwong,2025-09-20,false,active
+fgarcia,Frank Garcia,Admin,IT,,2026-06-07,true,active
+ghernandez,Grace Hernandez,Sales Rep,Sales,imanager,2026-05-30,false,disabled
+ipatel,Ian Patel,DBA,IT,fgarcia,2025-12-01,true,active
+svc_backup,Service Account Backup,Service,IT,,2024-03-10,true,active
+jdoe,Jane Doe,Intern,Marketing,kowski,2026-06-05,false,active
+oldadmin,Legacy Admin,Admin,IT,,2023-11-02,true,active
+kowski,Karl Kowalski,Marketing Lead,Marketing,ceo,2026-06-06,false,active

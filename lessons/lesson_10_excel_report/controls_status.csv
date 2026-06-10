@@ -1,0 +1,11 @@
+control_id,name,framework,owner,status,last_tested
+CC6.1,Logical access controls,SOC 2,IT Security,Effective,2026-05-01
+CC6.2,User registration & deprovisioning,SOC 2,IT Security,Effective,2026-05-01
+CC6.3,Role-based access / least privilege,SOC 2,IT Security,Needs Improvement,2026-04-15
+CC7.2,System monitoring,SOC 2,SecOps,Effective,2026-05-20
+CC7.3,Incident evaluation,SOC 2,SecOps,Not Tested,
+CC7.4,Incident response,SOC 2,SecOps,Effective,2026-03-30
+CC8.1,Change management,SOC 2,Engineering,Needs Improvement,2026-05-10
+A.5.15,Access control policy,ISO 27001,CISO,Effective,2026-02-28
+A.8.24,Cryptography,ISO 27001,Platform,Not Tested,
+A.5.24,Incident management planning,ISO 27001,SecOps,Effective,2026-04-01

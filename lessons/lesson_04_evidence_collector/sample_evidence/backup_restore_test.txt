@@ -1,0 +1,2 @@
+Backup job "nightly-db" succeeded.
+Last restore test: 2026-05-15 (passed).
