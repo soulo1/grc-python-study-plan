@@ -27,7 +27,7 @@ Concepts introduced:
 # Modeled on NIST SP 800-63B and CIS password guidance.
 # ---------------------------------------------------------------------------
 MIN_LENGTH = 12          # NIST recommends long passphrases over arbitrary complexity
-MAX_LENGTH = 20          # Adding maximum pw length control 
+MAX_LENGTH = 45          # Adding maximum pw length control 
 REQUIRE_UPPER = True
 REQUIRE_LOWER = True
 REQUIRE_DIGIT = True
@@ -37,7 +37,7 @@ REQUIRE_SYMBOL = True
 # list (e.g., the "Have I Been Pwned" top passwords) - we do that in later
 # lessons once you've learned to read files.
 COMMON_PASSWORDS = {
-    "password", "password1", "123456", "qwerty", "letmein",
+    "password", "password1", "123456", "qwerty", "letmein", "MickeyMouse",
     "admin", "welcome", "iloveyou", "monday1", "changeme",
 }
 
@@ -60,6 +60,8 @@ def check_password(password):
     # Length check
     if len(password) < MIN_LENGTH:
         failures.append(f"too short: {len(password)} chars (need >= {MIN_LENGTH})")
+    elif len(password) > MAX_LENGTH:
+        failures.append(f"too long: {len(password)} chars (need <= {MAX_LENGTH})")
 
     # Character-class checks. We scan the password once and set flags.
     has_upper = False
@@ -88,6 +90,10 @@ def check_password(password):
     # Blocklist check (case-insensitive)
     if password.lower() in COMMON_PASSWORDS:
         failures.append("appears on the common/breached password blocklist")
+
+    # Username check (case-insensitive)
+    if username.lower() in password.lower():
+        failures.append("cannot contain the username")
 
     return failures
 
@@ -123,6 +129,8 @@ def main():
         "Tr0ub4dor&3",              # decent but short of 12
         "correct-horse-Battery9!",  # strong passphrase
         "ALLUPPERCASE123!",         # no lowercase
+        "9x#K2m!vP$8bQ&zW4t*N7xY@1pL_3fC%6vR(9jKs)2mN!5bQ"   # password is too long
+        "MickeyMouse"               # common character pw phrase
     ]
     for pw in examples:
         report(pw)
