@@ -91,10 +91,6 @@ def check_password(password):
     if password.lower() in COMMON_PASSWORDS:
         failures.append("appears on the common/breached password blocklist")
 
-    # Username check (case-insensitive)
-    if username.lower() in password.lower():
-        failures.append("cannot contain the username")
-
     return failures
 
 
