@@ -27,6 +27,7 @@ Concepts introduced:
 # Modeled on NIST SP 800-63B and CIS password guidance.
 # ---------------------------------------------------------------------------
 MIN_LENGTH = 12          # NIST recommends long passphrases over arbitrary complexity
+MAX_LENGTH = 20          # Adding maximum pw length control 
 REQUIRE_UPPER = True
 REQUIRE_LOWER = True
 REQUIRE_DIGIT = True
