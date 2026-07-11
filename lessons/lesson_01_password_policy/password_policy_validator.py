@@ -116,6 +116,7 @@ def main():
     print("Password Policy Validator")
     print("=" * 40)
     print(f"Policy: min length {MIN_LENGTH}, "
+          f"Policy: max length {MAX_LENGTH}, "
           f"upper={REQUIRE_UPPER}, lower={REQUIRE_LOWER}, "
           f"digit={REQUIRE_DIGIT}, symbol={REQUIRE_SYMBOL}\n")
 
@@ -126,8 +127,7 @@ def main():
         "correct-horse-Battery9!",  # strong passphrase
         "ALLUPPERCASE123!",         # no lowercase
         "9x#K2m!vP$8bQ&zW4t*N7xY@1pL_3fC%6vR(9jKs)2mN!5bQ"   # password is too long
-        "MickeyMouse"               # common character pw phrase
-    ]
+                                ]
     for pw in examples:
         report(pw)
 
