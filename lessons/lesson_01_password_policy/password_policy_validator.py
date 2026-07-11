@@ -26,7 +26,7 @@ Concepts introduced:
 # analyst should be able to tune the policy here without touching the logic.
 # Modeled on NIST SP 800-63B and CIS password guidance.
 # ---------------------------------------------------------------------------
-MIN_LENGTH = 12          # NIST recommends long passphrases over arbitrary complexity
+MIN_LENGTH = 16          # NIST recommends long passphrases over arbitrary complexity
 MAX_LENGTH = 45          # Adding maximum pw length control 
 REQUIRE_UPPER = True
 REQUIRE_LOWER = True
@@ -93,6 +93,18 @@ def check_password(password):
 
     return failures
 
+def check_password(password, username=""):
+    failures = []
+
+    # Blocklist check (case-insensitive)
+    if password.lower() in COMMON_PASSWORDS:
+        failures.append("appears on the common/breached password blocklist")
+
+    # Contextual check: ensure password does not contain the username
+    if username and username.lower() in password.lower():
+        failures.append("contains the username")
+
+    return failures
 
 def report(password):
     """Print a PASS/FAIL report for a single password."""
