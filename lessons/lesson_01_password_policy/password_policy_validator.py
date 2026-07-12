@@ -93,7 +93,7 @@ def check_password(password):
 
     return failures
 
- def check_password(password, username=""):
+def check_password(password, username=""):
 
     failures = [] 
 
