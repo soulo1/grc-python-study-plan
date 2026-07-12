@@ -93,17 +93,6 @@ def check_password(password):
 
     return failures
 
-def check_password(password, username=""):
-
-    failures = [] 
-
-    # Contextual check: ensure password does not contain the username
-    if username and username.lower() in password():
-        failures.append("contains the username")
-
-    return failures
-
-
 def report(password):
     """Print a PASS/FAIL report for a single password."""
     failures = check_password(password)
