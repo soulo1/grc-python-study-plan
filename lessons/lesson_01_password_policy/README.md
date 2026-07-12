@@ -38,3 +38,13 @@ reusable — lesson 13 will test it, and other tools can import it.
 - Explain what a function `return`s vs. what it `print`s.
 - Add a new policy rule without breaking the others.
 - Read the whole file and predict its output before running it.
+
+## Run individual password checks... Soulo 1 7/12/2026
+- In order to test an individual password against policy.
+- Type: python -i  password_policy_validator.py and hit enter.
+- This will allow you to run the script in interactive mode.
+- Your terminal prompt will change to >>>. # Your file has now been loaded into memory, and you can test any password you want manually:
+- type at the >>> check-password("type a password here") and press enter to test it
+- If it does not meet the policy criteria the failure reason will appear
+- If it does meet the policy criteria you will see 0 failures.
+- Type exit() and hit enter to return to your regular terminal. 
