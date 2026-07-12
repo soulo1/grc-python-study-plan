@@ -93,9 +93,6 @@ def check_password(password):
 
     return failures
 
-def check_password(password, username=""):
-    failures = []
-
     # Blocklist check (case-insensitive)
     if password.lower() in COMMON_PASSWORDS:
         failures.append("appears on the common/breached password blocklist")
