@@ -98,7 +98,7 @@ def check_password(password):
     failures = [] 
 
     # Contextual check: ensure password does not contain the username
-    if username and username.lower() in password.lower():
+    if username and username.lower() in password():
         failures.append("contains the username")
 
     return failures
