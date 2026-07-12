@@ -26,7 +26,7 @@ Concepts introduced:
 # analyst should be able to tune the policy here without touching the logic.
 # Modeled on NIST SP 800-63B and CIS password guidance.
 # ---------------------------------------------------------------------------
-MIN_LENGTH = 16          # NIST recommends long passphrases over arbitrary complexity
+MIN_LENGTH = 12          # NIST recommends long passphrases over arbitrary complexity
 MAX_LENGTH = 45          # Adding maximum pw length control 
 REQUIRE_UPPER = True
 REQUIRE_LOWER = True
