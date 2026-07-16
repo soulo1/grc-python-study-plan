@@ -27,8 +27,8 @@ from datetime import date, datetime
 # ---------------------------------------------------------------------------
 # POLICY CONFIG - tune these to your environment's access-review policy.
 # ---------------------------------------------------------------------------
-STALE_DAYS = 90            # accounts not used in this many days are "stale"
-TODAY = date(2026, 6, 10)  # pinned so sample output is stable; use date.today() live
+STALE_DAYS = 60            # accounts not used in this many days are "stale"
+TODAY = date.today()  # pinned so sample output is stable; use date.today() live
 
 
 def parse_date(text):
