@@ -82,7 +82,7 @@ def review_account(row):
         findings.append(f"HIGH RISK: privileged AND stale ({age} days)")
     
     #6) Flag any account whose role contains "Contractor" and 30+ days since last login
-    if "Contractor" in role and last_login < STALE_DAYS:
+    if "Contractor" in role and last_login < (TODAY - days_since):
         findings.append(f"Contractors require tighter review")
 
     return username, findings
