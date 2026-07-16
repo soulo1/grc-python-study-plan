@@ -80,13 +80,17 @@ def review_account(row):
     # 5) Privileged + stale is a high-priority combination
     if is_privileged and age is not None and age > STALE_DAYS:
         findings.append(f"HIGH RISK: privileged AND stale ({age} days)")
+    
+    #6) Flag any account whose role contains "Contractor" and 30+ days since last login
+    if "Contractor" in role and last_login < TODAY + 30:
+        findings.append(f"contractors require tighter review")
 
     return username, findings
 
 
 def main():
     # sys.argv lets a user pass a filename: python access_review.py file.csv
-    path = sys.argv[1] if len(sys.argv) > 1 else "sample_users.csv"
+    path = sys.argv[1] if len(sys.argv) > 1 else "soulo_sample_users.csv"
 
     print("User Access Review Helper")
     print("=" * 50)
