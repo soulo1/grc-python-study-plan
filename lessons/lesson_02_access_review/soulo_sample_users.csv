@@ -3,10 +3,10 @@ tthompson,Thomas Thompson,DBA,IT,CIO,6/9/2026,FALSE,active
 mrodriguez,Maria Rodriguez,Engineer,Engineering,bwong,6/8/2026,TRUE,active
 kwright,Kevin Wright,Contractor,IT,CIO,6/7/2026,FALSE,active
 abaker,Amanda Baker,Finance Manager,Finance,Marshall,6/6/2026,FALSE,active
-jgreen,Jonathan Green,Engineering Manager,Engineering,bwong,6/5/2026,FALSE,active
+jgreen,Jonathan Green,Engineering Manager,Engineering,,6/5/2026,FALSE,active
 ncampbell,Natalie Campbell,Contractor,IT,CIO,2/1/2025,TRUE,active
 s_williams,Sarah Williams,Sales Rep,Sales,Bethany,5/30/2026,FALSE,disabled
-hpatel,Harish Patel,Admin,IT,CIO,1/15/2026,TRUE,active
+hpatel,Harish Patel,Admin,IT,,1/15/2026,TRUE,active
 svc_reporting,Service Account - Automated Reporting,Service,IT,CIO,12/1/2025,TRUE,active
 jsmith,John Smith,Intern,Marketing,kowski,9/20/2025,FALSE,disabled
 legacyadmin,Administrator - Legacy Systems,Contractor,IT,CIO,3/10/2024,TRUE,active
