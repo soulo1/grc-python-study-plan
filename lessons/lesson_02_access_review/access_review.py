@@ -29,6 +29,7 @@ from datetime import date, datetime
 # ---------------------------------------------------------------------------
 STALE_DAYS = 60            # accounts not used in this many days are "stale"
 TODAY = date.today()  # pinned so sample output is stable; use date.today() live
+CONTRACTOR_STALE_DAYS = 30   # contractors get a tighter review window
 
 
 def parse_date(text):
@@ -82,9 +83,10 @@ def review_account(row):
         findings.append(f"HIGH RISK: privileged AND stale ({age} days)")
     
     #6) Flag any account whose role contains "Contractor" and 30+ days since last login
-    if "Contractor" in role and (last_login).days > 30:
-        findings.append(f"Contractors require tighter review")
-
+    if "contractor" in role.lower() and age is not None and age > CONTRACTOR_STALE_DAYS:
+        findings.append(f"CONTRACTOR REVIEW: contractor role inactive {age} days "
+            f"(> {CONTRACTOR_STALE_DAYS})"
+        )
     return username, findings
 
 
