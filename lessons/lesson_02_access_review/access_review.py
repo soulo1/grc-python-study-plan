@@ -62,8 +62,6 @@ def review_account(row):
     last_login = parse_date(row.get("last_login", ""))
     age = days_since(last_login)
 
-    print(f"DEBUG: {username!r} role={role!r} age={age!r}")
-
     # 1) Stale active accounts (possible leaver who wasn't deprovisioned)
     if status == "active" and age is not None and age > STALE_DAYS:
         findings.append(f"STALE: active but no login in {age} days (> {STALE_DAYS})")
@@ -85,7 +83,7 @@ def review_account(row):
         findings.append(f"HIGH RISK: privileged AND stale ({age} days)")
     
     #6) Flag any account whose role contains "Contractor" and 30+ days since last login
-    if "contractor" in role.lower() and last_login > CONTRACTOR_STALE_DAYS:
+    if "contractor" in role.lower() and age is not None and age > CONTRACTOR_STALE_DAYS:
         findings.append(f"CONTRACTOR REVIEW: contractor role inactive {age} days "
             f"(> {CONTRACTOR_STALE_DAYS})"
         )
