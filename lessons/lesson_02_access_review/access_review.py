@@ -84,7 +84,9 @@ def review_account(row):
     
     #6) Flag any account whose role contains "Contractor" and 30+ days since last login
     if "contractor" in role.lower() and age is not None and age > CONTRACTOR_STALE_DAYS:
-        findings.append(f"CONTRACTOR REVIEW: contractor role inactive ({age} days)")
+        findings.append(f"CONTRACTOR REVIEW: disable contractor role due to ({age} days inactive "
+                         f"(> {CONTRACTOR_STALE_DAYS})"
+        )
 
     return username, findings
 
