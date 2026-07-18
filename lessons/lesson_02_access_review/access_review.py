@@ -27,7 +27,7 @@ from datetime import date, datetime
 # ---------------------------------------------------------------------------
 # POLICY CONFIG - tune these to your environment's access-review policy.
 # ---------------------------------------------------------------------------
-STALE_DAYS = 30            # accounts not used in this many days are "stale"
+STALE_DAYS = 90            # accounts not used in this many days are "stale"
 TODAY = date.today()  # pinned so sample output is stable; use date.today() live
 CONTRACTOR_STALE_DAYS = 30   # contractors get a tighter review window
 
