@@ -97,7 +97,7 @@ def main():
 
     print("User Access Review Helper")
     print("=" * 50)
-    print(f"Source: {path}   As of: {TODAY}   Stale threshold: {STALE_DAYS} days\n")
+    print(f"Source: {path}   As of: {TODAY}   Stale threshold: {STALE_DAYS} days\n   Contractor Stale threshold: {CONTRACTOR_STALE_DAYS} days\n")
 
     total = 0
     flagged = 0
