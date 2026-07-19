@@ -121,14 +121,18 @@ def main():
           f"{total - flagged} are clean.")
     
     # Write evidence CSV
-    for row in reader:
-        total += 1
-    username, findings = review_account(row)
-    if findings:
-        flagged += 1
-        print(f"[!] {username}")
-        for finding in findings:
-            print(f"    - {finding}")
+    with open(out_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f, fieldnames=["username", "role", "last_login", "finding", "reviewed_on"]
+        )        
+        for row in reader:
+            total += 1
+            username, findings = review_account(row)
+            if findings:
+                flagged += 1
+                print(f"[!] {username}")
+                for finding in findings:
+                    print(f"    - {finding}")
             output_rows.append({
                 "username": username,
                 "role": row.get("role", "").strip(),
@@ -136,11 +140,7 @@ def main():
                 "finding": finding,
                 "reviewed_on": TODAY.isoformat(),
             })
-
-    with open(out_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(
-            f, fieldnames=["username", "role", "last_login", "finding", "reviewed_on"]
-        )
+    
         writer.writeheader()
         writer.writerows(output_rows)
 
