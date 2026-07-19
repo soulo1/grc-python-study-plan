@@ -95,14 +95,15 @@ def main():
     # sys.argv lets a user pass a filename: python access_review.py file.csv
     path = sys.argv[1] if len(sys.argv) > 1 else "soulo_sample_users.csv"
     out_path = sys.argv[2] if len(sys.argv) > 2 else "access_review_findings.csv"
-    output_rows = []  # starts empty
-
+   
     print("User Access Review Helper")
     print("=" * 50)
     print(f"Source: {path}   As of: {TODAY}   Stale threshold: {STALE_DAYS} days\n   Contractor Stale threshold: {CONTRACTOR_STALE_DAYS} days\n")
 
     total = 0
     flagged = 0
+    output_rows = []  # starts empty
+    dept_exception_counts = {}   # <-- NEW: tally exceptions per department
 
     # csv.DictReader turns each row into a dict like {"username": "asmith", ...}
     with open(path, newline="", encoding="utf-8") as f:
@@ -110,9 +111,15 @@ def main():
         for row in reader:
             total += 1
             username, findings = review_account(row)
+            department = row.get("department", "Unknown").strip() or "Unknown"
+
             if findings:
                 flagged += 1
                 print(f"[!] {username}")
+
+                # NEW: bump this department's count once per flagged account
+                dept_exception_counts[department] = dept_exception_counts.get(department, 0) + 1
+
                 for finding in findings:
                     print(f"      - {finding}")
 
@@ -120,26 +127,16 @@ def main():
     print(f"Reviewed {total} accounts. {flagged} have exceptions, "
           f"{total - flagged} are clean.")
     
+    # NEW: print department breakdown
+    print("\nExceptions by department:")
+    for dept, count in sorted(dept_exception_counts.items(), key=lambda x: -x[1]):
+        print(f"  {dept}: {count}")
+    
     # Write evidence CSV
     with open(out_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(
             f, fieldnames=["username", "role", "last_login", "finding", "reviewed_on"])        
-        for row in reader:
-            total += 1
-            username, findings = review_account(row)
-            if findings:
-                flagged += 1
-                print(f"[!] {username}")
-                for finding in findings:
-                    print(f"    - {finding}")
-            output_rows.append({
-                "username": username,
-                "role": row.get("role", "").strip(),
-                "last_login": row.get("last_login", "").strip(),
-                "finding": finding,
-                "reviewed_on": TODAY.isoformat(),
-            })
-    
+        
         writer.writeheader()
         writer.writerows(output_rows)
 
