@@ -123,8 +123,7 @@ def main():
     # Write evidence CSV
     with open(out_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(
-            f, fieldnames=["username", "role", "last_login", "finding", "reviewed_on"]
-        )        
+            f, fieldnames=["username", "role", "last_login", "finding", "reviewed_on"])        
         for row in reader:
             total += 1
             username, findings = review_account(row)
