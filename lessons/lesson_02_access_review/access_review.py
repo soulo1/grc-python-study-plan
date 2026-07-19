@@ -33,7 +33,7 @@ CONTRACTOR_STALE_DAYS = 30   # contractors get a tighter review window
 
 
 def parse_date(text):
-    """Turn '2026-06-08' into a date object. Returns None if blank/invalid."""
+    """Turn '2026/06/08' into a date object. Returns None if blank/invalid."""
     text = (text or "").strip()
     if not text:
         return None
@@ -94,6 +94,8 @@ def review_account(row):
 def main():
     # sys.argv lets a user pass a filename: python access_review.py file.csv
     path = sys.argv[1] if len(sys.argv) > 1 else "soulo_sample_users.csv"
+    out_path = sys.argv[2] if len(sys.argv) > 2 else "access_review_findings.csv"
+    output_rows = []  # starts empty
 
     print("User Access Review Helper")
     print("=" * 50)
@@ -117,9 +119,16 @@ def main():
     print("\n" + "-" * 50)
     print(f"Reviewed {total} accounts. {flagged} have exceptions, "
           f"{total - flagged} are clean.")
-    if flagged:
-        print("Action: review each flagged account with its owner and document a"
-              " decision (keep / modify / remove).")
+    
+    # Write evidence CSV
+    with open(out_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(
+            f, fieldnames=["username", "role", "last_login", "finding", "reviewed_on"]
+        )
+        writer.writeheader()
+        writer.writerows(output_rows)
+
+    print(f"\nEvidence written to: {out_path}")
 
 
 if __name__ == "__main__":
